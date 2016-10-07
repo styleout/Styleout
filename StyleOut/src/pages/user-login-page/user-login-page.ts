@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { HomePage } from '../home-page/home-page';
 /*
   Generated class for the UserLoginPage page.
 
@@ -14,6 +14,10 @@ import { NavController } from 'ionic-angular';
 export class UserLoginPage {
 
   constructor(public navCtrl: NavController) {}
+
+  public continueWithoutLogin(){
+    this.navCtrl.setRoot(HomePage);
+  }
 
   ionViewDidLoad() {
     console.log('Hello UserLoginPage Page');
