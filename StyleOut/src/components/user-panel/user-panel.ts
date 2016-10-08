@@ -14,10 +14,12 @@ import { Component } from '@angular/core';
 export class UserPanel {
 
   text: string;
+  userLoggedIn:boolean;
 
   constructor() {
     console.log('Hello UserPanel Component');
     this.text = 'Hello World';
+    this.userLoggedIn = false;
   }
 
 }
