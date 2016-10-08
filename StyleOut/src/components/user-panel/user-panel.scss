@@ -1,3 +1,9 @@
 user-panel {
 
 }
+
+.image-rounded{
+    border-radius: 50%;
+    border-style: solid;
+    border-color: mmap-get($colors,primary)
+    }

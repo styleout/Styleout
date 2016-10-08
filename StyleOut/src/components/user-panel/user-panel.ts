@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 /*
   Generated class for the UserPanel component.
 
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 */
 @Component({
   selector: 'user-panel',
-  templateUrl: 'user-panel.html'
+  templateUrl: 'user-panel.html',
 })
 export class UserPanel {
 

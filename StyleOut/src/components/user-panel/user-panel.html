@@ -5,4 +5,12 @@
   for more info on Angular 2 Components.
 -->
 
-{{text}}
+<span>
+  <div *ngIf="!userLoggedIn">
+    <ion-iconq>
+      <img  class='image-rounded' src="assets/images/person.png"/>
+    </ion-icon>
+  </div>
+  <div *ngIf="userLoggedIn">
+  </div>
+</span>
