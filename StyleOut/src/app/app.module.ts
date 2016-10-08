@@ -10,9 +10,6 @@ import { BlogPostListPage } from '../pages/blog-post-list-page/blog-post-list-pa
 import { SignUpPage } from '../pages/sign-up-page/sign-up-page';
 import { ForgotPasswordPage } from '../pages/forgot-password-page/forgot-password-page';
 
-//ionic directives
-import{ IONIC_DIRECTIVES } from 'ionic-angular';
-
 //user panel component for side menu
 import { UserPanel } from '../components/user-panel/user-panel';
 
