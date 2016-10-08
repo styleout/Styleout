@@ -3,7 +3,10 @@ user-panel {
 }
 
 .image-rounded{
+    width:128px;
+    margin: 10px;
+    border:10px solid map-get($colors,primary);
     border-radius: 50%;
-    border-style: solid;
-    border-color: mmap-get($colors,primary)
-    }
+    margin-left: 26%;
+    margin-top: 10%;
+}

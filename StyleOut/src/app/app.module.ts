@@ -5,6 +5,8 @@ import { MyApp } from './app.component';
 import { UserLoginPage } from '../pages/user-login-page/user-login-page'; 
 import { HomePage } from '../pages/home-page/home-page';
 import { RewardsPage } from '../pages/rewards-page/rewards-page';
+import { ChallengeListPage } from '../pages/challenge-list-page/challenge-list-page';
+import { BlogPostListPage } from '../pages/blog-post-list-page/blog-post-list-page';
 
 //ionic directives
 import{ IONIC_DIRECTIVES } from 'ionic-angular';
@@ -19,7 +21,9 @@ import { UserPanel } from '../components/user-panel/user-panel';
     UserLoginPage,
     HomePage,
     UserPanel,
-    RewardsPage
+    RewardsPage,
+    ChallengeListPage,
+    BlogPostListPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,6 +34,8 @@ import { UserPanel } from '../components/user-panel/user-panel';
     UserLoginPage,
     HomePage,
     RewardsPage,
+    ChallengeListPage,
+    BlogPostListPage,
   ],
   providers: []
 })
