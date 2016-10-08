@@ -6,13 +6,13 @@
 -->
 <ion-content padding>
   <ion-col style="height:100%">
-    <ion-row style="height:33%">
-      <span class="app-icon-wrapper">
+    <ion-row style="height:40%">
+      <div class="app-icon-wrapper">
         <span class="app-icon-font-style">Style</span>
         <span class="app-icon-font-out">Out</span>
-      </span>
+      </div>
     </ion-row>
-    <ion-row style="height:77%">
+    <ion-row style="height:60%">
       <ion-col>
          <ion-row>
            <ion-col>
@@ -32,28 +32,28 @@
           </ion-row>
            <ion-row>
              <ion-col>
-              <button ion-button large style="width:50%; margin-left:25%" >Sign in</button>
+              <button ion-button style="width:50%; margin-left:25%" >Sign in</button>
              </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-                <button ion-button full icon-left color="facebook"> <ion-icon class="fa fa-facebook fa-2x"></ion-icon>Facebook</button>
+                <button ion-button full small icon-left color="facebook"> <ion-icon class="fa fa-facebook"></ion-icon>Facebook</button>
             </ion-col>
             <ion-col>
-                <button ion-button full icon-left color="google" ><ion-icon class="fa fa-google fa-2x"></ion-icon>Google</button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-                <button ion-button full clear (click)="forgotPassword()">Forgot Password?</button>
-            </ion-col>
-            <ion-col>
-                <button ion-button full clear (click)="signUp()">New User? Sign Up</button>
+                <button ion-button full small icon-left color="google" ><ion-icon class="fa fa-google"></ion-icon>Google</button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <button ion-button full clear large  (click)="continueWithoutLogin()">Continue Without Logging In.</button>
+                <button ion-button small full clear (click)="forgotPassword()">Forgot Password?</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button small full clear (click)="signUp()">New User? Sign Up</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button ion-button full clear (click)="continueWithoutLogin()">Continue Without Logging In.</button>
             </ion-col>
           </ion-row>
       </ion-col>
