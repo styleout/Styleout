@@ -36,18 +36,18 @@
           </ion-row>
           <ion-row>
             <ion-col>
-                <button ion-button full outline><ion-icon class="fa fa-heart"></ion-icon>Facebook</button>
+                <button ion-button full icon-left color="facebook"> <ion-icon class="fa fa-facebook fa-2x"></ion-icon>Facebook</button>
             </ion-col>
             <ion-col>
-                <button ion-button full outline>Google</button>
+                <button ion-button full icon-left color="google" ><ion-icon class="fa fa-google fa-2x"></ion-icon>Google</button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-                <button ion-button full clear >Forgot Password?</button>
+                <button ion-button full clear (click)="forgotPassword()">Forgot Password?</button>
             </ion-col>
             <ion-col>
-                <button ion-button full clear >New User? Sign Up</button>
+                <button ion-button full clear (click)="signUp()">New User? Sign Up</button>
             </ion-col>
           </ion-row>
           <ion-row>

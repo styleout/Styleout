@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home-page/home-page';
 import { RewardsPage } from '../pages/rewards-page/rewards-page';
 import { ChallengeListPage } from '../pages/challenge-list-page/challenge-list-page';
 import { BlogPostListPage } from '../pages/blog-post-list-page/blog-post-list-page';
+import { SignUpPage } from '../pages/sign-up-page/sign-up-page';
+import { ForgotPasswordPage } from '../pages/forgot-password-page/forgot-password-page';
 
 //ionic directives
 import{ IONIC_DIRECTIVES } from 'ionic-angular';
@@ -24,6 +26,8 @@ import { UserPanel } from '../components/user-panel/user-panel';
     RewardsPage,
     ChallengeListPage,
     BlogPostListPage,
+    SignUpPage,
+    ForgotPasswordPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -36,6 +40,8 @@ import { UserPanel } from '../components/user-panel/user-panel';
     RewardsPage,
     ChallengeListPage,
     BlogPostListPage,
+    SignUpPage,
+    ForgotPasswordPage
   ],
   providers: []
 })

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../home-page/home-page';
+import { SignUpPage } from '../sign-up-page/sign-up-page';
+import { ForgotPasswordPage } from '../forgot-password-page/forgot-password-page';
 /*
   Generated class for the UserLoginPage page.
 
@@ -17,6 +19,14 @@ export class UserLoginPage {
 
   public continueWithoutLogin(){
     this.navCtrl.setRoot(HomePage);
+  }
+
+  public forgotPassword(){
+    this.navCtrl.push(ForgotPasswordPage);
+  }
+
+  public signUp(){
+    this.navCtrl.push(SignUpPage);
   }
 
   ionViewDidLoad() {
