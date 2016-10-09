@@ -18,7 +18,7 @@
            <ion-col>
              <ion-item>
                   <ion-label floating>Email</ion-label>
-                  <ion-input type="text"></ion-input>
+                  <ion-input [(ngModel)]="email" type="text"></ion-input>
               </ion-item>
            </ion-col>
           </ion-row>
@@ -26,21 +26,21 @@
             <ion-col>
               <ion-item>
                   <ion-label floating>Password</ion-label>
-                  <ion-input type="password"></ion-input>
+                  <ion-input [(ngModel)]="password" type="password"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
            <ion-row>
              <ion-col>
-              <button ion-button style="width:50%; margin-left:25%" >Sign in</button>
+              <button ion-button (click)="login()" style="width:50%; margin-left:25%" >Sign in</button>
              </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-                <button ion-button full small icon-left color="facebook"> <ion-icon class="fa fa-facebook"></ion-icon>Facebook</button>
+                <button ion-button full small icon-left (click)="facebookLogin()" color="facebook"> <ion-icon class="fa fa-facebook"></ion-icon>Facebook</button>
             </ion-col>
             <ion-col>
-                <button ion-button full small icon-left color="google" ><ion-icon class="fa fa-google"></ion-icon>Google</button>
+                <button ion-button full small icon-left (click)="googleLogin()"  color="google" ><ion-icon class="fa fa-google"></ion-icon>Google</button>
             </ion-col>
           </ion-row>
           <ion-row>

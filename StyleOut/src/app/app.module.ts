@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { MyApp } from './app.component';
 
 import { UserLoginPage } from '../pages/user-login-page/user-login-page'; 
@@ -13,6 +14,14 @@ import { ForgotPasswordPage } from '../pages/forgot-password-page/forgot-passwor
 //user panel component for side menu
 import { UserPanel } from '../components/user-panel/user-panel';
 
+//services 
+import { UserService } from '../providers/user-service';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '0c7915e7'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -27,8 +36,9 @@ import { UserPanel } from '../components/user-panel/user-panel';
     ForgotPasswordPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
-  ],
+    IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
+  ], 
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -40,6 +50,8 @@ import { UserPanel } from '../components/user-panel/user-panel';
     SignUpPage,
     ForgotPasswordPage
   ],
-  providers: []
+  providers: [
+    UserService
+  ]
 })
 export class AppModule {}

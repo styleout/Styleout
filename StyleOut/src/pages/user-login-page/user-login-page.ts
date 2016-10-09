@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { HomePage } from '../home-page/home-page';
 import { SignUpPage } from '../sign-up-page/sign-up-page';
 import { ForgotPasswordPage } from '../forgot-password-page/forgot-password-page';
+import { UserService } from '../../providers/user-service';
+
 /*
   Generated class for the UserLoginPage page.
 
@@ -11,11 +13,15 @@ import { ForgotPasswordPage } from '../forgot-password-page/forgot-password-page
 */
 @Component({
   selector: 'page-user-login-page',
-  templateUrl: 'user-login-page.html'
+  templateUrl: 'user-login-page.html',
+  providers:[ UserService ]
 })
 export class UserLoginPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public userService: UserService) {}
+
+  public email:string;
+  public password:string;
 
   public continueWithoutLogin(){
     this.navCtrl.setRoot(HomePage);
@@ -29,8 +35,21 @@ export class UserLoginPage {
     this.navCtrl.push(SignUpPage);
   }
 
-  ionViewDidLoad() {
-    console.log('Hello UserLoginPage Page');
+  public login(){
+    this.userService.login(this.email,this.password);
   }
+
+  public facebookLogin(){
+    this.userService.facebookLogin().then(
+      ()=>{this.navCtrl.setRoot(HomePage);}
+    );
+  }
+
+  public googleLogin(){
+     this.userService.googleLogin().then(
+      ()=>{this.navCtrl.setRoot(HomePage);}
+    );
+  }
+
 
 }
