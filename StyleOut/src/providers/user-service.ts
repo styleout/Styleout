@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Auth, User,IDetailedError } from '@ionic/cloud-angular'; //UserDetails
+import { Auth, User,IDetailedError,AuthLoginResult } from '@ionic/cloud-angular'; //UserDetails
 import 'rxjs/add/operator/map';
 
 /*
@@ -19,52 +19,75 @@ export class UserService {
 
   public errors: string[];
 
-  public facebookLogin(){
-    let p = new Promice();
-    this.auth.login('facebook').then(p.resolve(true),p.reject(false));
-    return p;
+  public processError(error){
+
+    if(error.response){
+        return(error.response.body.error.message);
+    }
+    if(error.details){
+      return(error.details[0])
+    }else{
+      return(error.message);
+    }
   }
 
-  public googleLogin(){
-    let p = new Promice();
-    this.auth.login('google').then(p.resolve(true),p.reject(false));
-    return p;
+  public facebookLogin(){
+    return new Promise( (resolve, reject)=>{
+         var self_class = this;
+         self_class.auth.login('facebook').then((success:AuthLoginResult) =>{ resolve("success") },(error)=>{
+           var self_class = this;
+           reject(self_class.processError(error));
+          }
+        ); 
+    });     
+  }
+
+  public googleLogin() {
+     return new Promise( (resolve, reject)=>{
+         var self_class = this;
+         self_class.auth.login('google').then((success:AuthLoginResult) =>{ resolve("success") },(error)=>{
+           var self_class = this;
+           reject(self_class.processError(error));
+         }); 
+    });     
   }
 
   public login(email:string, password:string){
-    return this.auth.login('basic',{'email':email,'password':password});
+     return new Promise( (resolve, reject)=>{
+         var self_class = this;
+         self_class.auth.login('basic',{'email':email,'password':password}).then((success:AuthLoginResult) =>{ resolve("success") },(error)=>{
+           var self_class = this;
+           reject(self_class.processError(error));
+          }); 
+    });    
+    
   }
 
   public signUpUserUsingEmailPassword(username:string, email:string, password:string){
-    let p = new Promice();
-
-    this.auth.signup({'username':username,'email':email,'password':password}).then(()=>{
-        this.auth.login('basic',{'email':email,'password':password})
-          .then(p.resolve(true),p.reject(false));
-    },( err:IDetailedError<string[]> )=>{
-        this.errors = [];
-
-        for( let e of err.details ){
-          switch (e)
-          {
-            case 'conflict_email' :
-              this.errors.push("Email already in use.");
-              break;
-            case 'conflict_username' :
-              this.errors.push("Username already in use");
-              break;
-            case 'invalid_email':
-              this.errors.push("Email is not valid.");
-              break;
-            default:
-              break;
-          }
-       }
-
-       p.reject(false);
-    });
-
-    return p;
+      return new Promise((resolve,reject)=>{
+          var self_class = this;
+          self_class.auth.signup({'username':username,'email':email,'password':password}).then( (success)=>{ resolve(true) },  ( err:IDetailedError<string[]> )=>{
+              var self_class = this;
+              self_class.errors = [];
+              for( let e of err.details ){
+                switch (e)
+                {
+                  case 'conflict_email' :
+                    self_class.errors.push("Email already in use.");
+                    break;
+                  case 'conflict_username' :
+                    self_class.errors.push("Username already in use");
+                    break;
+                  case 'invalid_email':
+                    self_class.errors.push("Email is not valid.");
+                    break;
+                  default:
+                    break;
+                }
+              }
+              reject(false);
+          });
+      });
   }
 
 }
