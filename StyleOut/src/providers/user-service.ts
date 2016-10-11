@@ -30,7 +30,6 @@ export class UserService {
       return(error.message);
     }
   }
-
   public facebookLogin(){
     return new Promise( (resolve, reject)=>{
          var self_class = this;
@@ -66,26 +65,27 @@ export class UserService {
   public signUpUserUsingEmailPassword(username:string, email:string, password:string){
       return new Promise((resolve,reject)=>{
           var self_class = this;
-          self_class.auth.signup({'username':username,'email':email,'password':password}).then( (success)=>{ resolve(true) },  ( err:IDetailedError<string[]> )=>{
+          self_class.auth.signup({'username':username,'email':email,'password':password}).then( (success)=>{ resolve("success") },  ( err:IDetailedError<string[]> )=>{
               var self_class = this;
               self_class.errors = [];
+              debugger;
               for( let e of err.details ){
                 switch (e)
                 {
                   case 'conflict_email' :
-                    self_class.errors.push("Email already in use.");
-                    break;
+                   reject("Email already in use.");
+                   break;
                   case 'conflict_username' :
-                    self_class.errors.push("Username already in use");
+                    reject("Username already in use");
                     break;
                   case 'invalid_email':
-                    self_class.errors.push("Email is not valid.");
+                    reject("Email is not valid.");
                     break;
                   default:
+                    reject(err.message)
                     break;
                 }
               }
-              reject(false);
           });
       });
   }
